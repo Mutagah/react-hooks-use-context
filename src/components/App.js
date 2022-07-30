@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { UserProvider } from "../context/User";
 import Header from "./Header";
 import Profile from "./Profile";
 
@@ -7,8 +8,10 @@ function App() {
   const [user, setUser] = useState(null);
   return (
     <main className={theme}>
-      <Header theme={theme} setTheme={setTheme} user={user} setUser={setUser} />
-      <Profile theme={theme} user={user} />
+      <UserProvider>
+      <Header />
+      <Profile theme={theme} />
+      </UserProvider>
     </main>
   );
 }
